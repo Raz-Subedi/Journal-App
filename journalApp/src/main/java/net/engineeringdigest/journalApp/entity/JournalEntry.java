@@ -1,5 +1,8 @@
 package net.engineeringdigest.journalApp.entity;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -9,6 +12,9 @@ import java.util.Date;
 
 @Document(collection = "journal_entries")   // mapped to Mongodb Collection
             // journal entry's instance is equals to the row
+@Data      // lombok -> generates byte code for methods like
+            // (reduces boile plate code to create getter setter constructor equals tostring hashcode )
+// This generated code is added to the complied class files.
 public class JournalEntry {       // POJO -> Plain Old Java Object
     @Id  // unique key primary key
     private ObjectId id;
@@ -16,35 +22,5 @@ public class JournalEntry {       // POJO -> Plain Old Java Object
     private String content;
     private LocalDateTime date;
 
-    public ObjectId getId() {
-        return id;
-    }
 
-    public void setId(ObjectId id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public LocalDateTime getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDateTime date) {
-        this.date = date;
-    }
 }
