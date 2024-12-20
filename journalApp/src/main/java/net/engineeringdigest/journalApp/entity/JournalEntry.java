@@ -1,8 +1,6 @@
 package net.engineeringdigest.journalApp.entity;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -15,12 +13,12 @@ import java.util.Date;
 @Data      // lombok -> generates byte code for methods like
             // (reduces boile plate code to create getter setter constructor equals tostring hashcode )
 // This generated code is added to the complied class files.
+@NoArgsConstructor
 public class JournalEntry {       // POJO -> Plain Old Java Object
     @Id  // unique key primary key
     private ObjectId id;
+    @NonNull
     private String title;
     private String content;
     private LocalDateTime date;
-
-
 }
